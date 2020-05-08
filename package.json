@@ -1,5 +1,5 @@
 {
-  "name": "@w3f/kindd",
+  "name": "@w3f/kind",
   "version": "0.1.0",
   "description": "Kubernetes IN Docker manager",
   "repository": "git@github.com:w3f/kind-ts.git",
@@ -20,6 +20,7 @@
     "start": "node ./dist/index.js start"
   },
   "dependencies": {
+    "@w3f/cmd": "^0.1.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.9",
