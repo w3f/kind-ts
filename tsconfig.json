@@ -18,5 +18,5 @@
     "e2e-test/**/*",
     "dist/**/*"
   ],
-  "_comment": "The downloader library contains typescript errors"
+  "_comment": "The kind library contains typescript errors"
 }
