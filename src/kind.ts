@@ -58,6 +58,9 @@ export class KindManager implements Kind {
         } catch (e) {
             this.logger.debug(`could not remove portforward container: ${e.message}`);
         }
+        this.cmd.setOptions({
+            shell: true
+        });
         await this.cmd.exec('docker', 'run', '-d', '-it', '--name', 'portforward', '--net=host', '--entrypoint', '/bin/sh', 'alpine/socat', '-c', '"while true; do sleep 100; done"');
 
         this.cmd.setOptions({
@@ -67,6 +70,7 @@ export class KindManager implements Kind {
             shell: true
         });
         const pid = await this.cmd.exec('socat', `"TCP-LISTEN:${port},reuseaddr,fork"`, `EXEC:"'docker exec -i portforward socat STDIO TCP:localhost:${port}'"`);
+
         this.logger.debug(`port forwarder pid: ${pid}`)
     }
 
