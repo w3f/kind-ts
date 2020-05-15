@@ -19,7 +19,7 @@ const cmd = new Cmd(logger);
 describe('Kind', () => {
     before(async () => {
         const kindPath = await cm.path('kind');
-        subject = new KindManager(kindPath, cmd);
+        subject = new KindManager(kindPath, cmd, logger);
     });
     describe('clusters', () => {
         beforeEach(async () => {

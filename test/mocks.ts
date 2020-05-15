@@ -3,9 +3,9 @@ export class LoggerMock {
         console.log(msg);
     }
     debug(msg: string): void {
-        console.log(msg)
+        console.log(msg);
     }
     error(msg: string): void {
-        console.log(msg)
+        console.log(msg);
     }
 }
