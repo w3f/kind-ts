@@ -1,6 +1,5 @@
 import { Cmd } from '@w3f/cmd';
 import { Logger } from '@w3f/logger';
-import { dockerCommand } from 'docker-cli-js';
 import * as k8s from '@kubernetes/client-node'
 import url from 'url';
 
@@ -55,11 +54,11 @@ export class KindManager implements Kind {
 
     private async portForward(port: string): Promise<void> {
         try {
-            await dockerCommand('rm -f portforward');
+            await this.cmd.exec('docker', 'rm', '-f', 'portforward');
         } catch (e) {
             this.logger.debug(`could not remove portforward container: ${e.message}`);
         }
-        await dockerCommand('run -d -it --name portforward --net=host --entrypoint /bin/sh alpine/socat -c "while true; do sleep 100; done"');
+        await this.cmd.exec('docker', 'run', '-d', '-it', '--name', 'portforward', '--net=host', '--entrypoint', '/bin/sh', 'alpine/socat', '-c', '"while true; do sleep 100; done"');
 
         this.cmd.setOptions({
             verbose: false,
