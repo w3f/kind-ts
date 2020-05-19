@@ -3,10 +3,10 @@ import { Logger } from '@w3f/logger';
 import * as k8s from '@kubernetes/client-node'
 import url from 'url';
 
-import { Kind } from './types';
+import { KindManager } from './types';
 
 
-export class KindManager implements Kind {
+export class Kind implements KindManager {
     constructor(
         private readonly binaryPath: string,
         private readonly cmd: Cmd,
