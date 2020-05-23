@@ -166,10 +166,10 @@
     semver "^6.3.0"
     tsutils "^3.17.1"
 
-"@w3f/cmd@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@w3f/cmd/-/cmd-0.2.0.tgz#012a2f7304c478b1988b232d4e935ae480ad320b"
-  integrity sha512-DnTFborCRLZ6Xx2iZ9ntOj+fn7P8RO8g0Xv4QY2rGsq6YyZT2qnnTeqFUJllS6o0z+hLrHXmnGtIQyfrrQ0zhw==
+"@w3f/cmd@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@w3f/cmd/-/cmd-0.3.0.tgz#e2e84a8549c6fb11c6b5a3e373cea95ccb064f4e"
+  integrity sha512-TfStpc4L13Pc/rpQ29rv6Nc3BjSZ+S62PUb0VMV3ZCVC7qm8EMMuyQWzxeFW8jPRtfj8mspTdMP4EYRIKnUOWw==
   dependencies:
     "@w3f/logger" "^0.3.0"
 
