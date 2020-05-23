@@ -1,4 +1,4 @@
-import { Cmd } from '@w3f/cmd';
+import { CmdManager } from '@w3f/cmd';
 import { Logger } from '@w3f/logger';
 import * as k8s from '@kubernetes/client-node'
 import url from 'url';
@@ -9,7 +9,7 @@ import { KindManager } from './types';
 export class Kind implements KindManager {
     constructor(
         private readonly binaryPath: string,
-        private readonly cmd: Cmd,
+        private readonly cmd: CmdManager,
         private readonly logger: Logger
     ) { }
 
