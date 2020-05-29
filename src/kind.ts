@@ -1,5 +1,5 @@
 import { CmdManager, Cmd } from '@w3f/cmd';
-import { ComponentsManager } from '@w3f/components';
+import { Components } from '@w3f/components';
 import { Logger } from '@w3f/logger';
 import * as k8s from '@kubernetes/client-node'
 import url from 'url';
@@ -12,7 +12,7 @@ export class Kind implements KindManager {
         const cmCfg = {
             'kind': 'https://w3f.github.io/components-ts/downloads/linux-amd64/kind/0.8.1/kind.tar.gz'
         };
-        const cm = new ComponentsManager('kind-test', cmCfg, logger);
+        const cm = new Components('kind-test', cmCfg, logger);
         const cmd = new Cmd(logger);
         const kindPath = await cm.path('kind');
         return new this(kindPath, cmd, logger);
