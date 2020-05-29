@@ -1,6 +1,6 @@
 {
   "name": "@w3f/kind",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Kubernetes IN Docker manager",
   "repository": "git@github.com:w3f/kind-ts.git",
   "author": "W3F Infrastructure Team <devops@web3.foundation>",
