@@ -13,23 +13,23 @@ export class Kind implements KindManager {
         private readonly logger: Logger
     ) { }
 
-    async start(name = 'ci'): Promise<string | number> {
+    async start(name = 'ci'): Promise<void> {
         this.cmd.setOptions({
             verbose: true
         });
 
-        return this.exec('create', 'cluster', '--name', name);
+        await this.exec('create', 'cluster', '--name', name);
     }
 
-    async stop(name = 'ci'): Promise<string | number> {
+    async stop(name = 'ci'): Promise<void> {
         this.cmd.setOptions({
             verbose: true
         });
 
-        return this.exec('delete', 'cluster', '--name', name);
+        await this.exec('delete', 'cluster', '--name', name);
     }
 
-    async kubeconfig(name = 'ci'): Promise<string | number> {
+    async kubeconfig(name = 'ci'): Promise<string> {
         this.cmd.setOptions({
             verbose: false
         });
