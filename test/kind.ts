@@ -1,6 +1,6 @@
 import { should } from 'chai';
 import { Cmd } from '@w3f/cmd';
-import { ComponentsManager } from '@w3f/components';
+import { Components } from '@w3f/components';
 import * as k8s from '@kubernetes/client-node';
 
 import { Kind } from '../src/kind';
@@ -9,15 +9,10 @@ import { LoggerMock } from './mocks';
 should();
 
 const logger = new LoggerMock();
-const cmCfg = {
-    'kind': 'https://w3f.github.io/components-ts/downloads/linux-amd64/kind/0.8.1/kind.tar.gz'
-};
-const cm = new ComponentsManager('kind-test', cmCfg, logger);
 let subjectFactory: Kind;
 let subjectConstructor: Kind;
-const cmd = new Cmd(logger);
 
-async function checks(subject: Kind) {
+async function checks(subject: Kind): Promise<void> {
     const kubeconfigContent = await subject.kubeconfig() as string;
 
     const kc = new k8s.KubeConfig();
@@ -30,13 +25,17 @@ async function checks(subject: Kind) {
 }
 
 describe('Kind', () => {
-    before(async () => {
-        const kindPath = await cm.path('kind');
-        subjectConstructor = new Kind(kindPath, cmd, logger);
-        subjectFactory = await Kind.create(logger);
-    });
     describe('constructor', () => {
         beforeEach(async () => {
+            const cmCfg = {
+                'kind': 'https://w3f.github.io/components-ts/downloads/linux-amd64/kind/0.8.1/kind.tar.gz'
+            };
+            const cm = new Components('kind-test', cmCfg, logger);
+            const cmd = new Cmd(logger);
+
+            const kindPath = await cm.path('kind');
+            subjectConstructor = new Kind(kindPath, cmd, logger);
+
             await subjectConstructor.start();
         });
 
@@ -50,6 +49,8 @@ describe('Kind', () => {
     });
     describe('static factory', () => {
         beforeEach(async () => {
+            subjectFactory = await Kind.create(logger);
+
             await subjectFactory.start();
         });
 
