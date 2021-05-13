@@ -1,6 +1,6 @@
 {
   "name": "@w3f/kind",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Kubernetes IN Docker manager",
   "repository": "git@github.com:w3f/kind-ts.git",
   "author": "W3F Infrastructure Team <devops@web3.foundation>",
@@ -20,10 +20,10 @@
     "start": "node ./dist/index.js start"
   },
   "dependencies": {
-    "@kubernetes/client-node": "^0.11.2",
+    "@kubernetes/client-node": "^0.14.3",
     "@w3f/cmd": "^0.3.0",
-    "@w3f/components": "^0.4.0",
-    "@w3f/logger": "^0.3.0"
+    "@w3f/components": "^0.4.1",
+    "@w3f/logger": "^0.4.3"
   },
   "devDependencies": {
     "@types/chai": "^4.2.9",
