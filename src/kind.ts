@@ -8,7 +8,7 @@ import { KindManager } from './types';
 
 
 export class Kind implements KindManager {
-    static async create(logger: Logger, version = '0.8.1'): Promise<Kind> {
+    static async create(logger: Logger, version = '0.10.0'): Promise<Kind> {
         const cmCfg = {
             'kind': `https://w3f.github.io/components-ts/downloads/linux-amd64/kind/${version}/kind.tar.gz`
         };
